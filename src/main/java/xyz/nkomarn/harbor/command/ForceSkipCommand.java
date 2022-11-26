@@ -22,12 +22,11 @@ public class ForceSkipCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
-        if (!(sender instanceof Player)) {
+        if (!(sender instanceof Player player)) {
             sender.sendMessage(config.getPrefix() + "This command can only be used by a player.");
             return true;
         }
 
-        Player player = (Player) sender;
         World world = player.getWorld();
         Checker checker = harbor.getChecker();
 

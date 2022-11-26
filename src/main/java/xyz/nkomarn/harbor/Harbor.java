@@ -1,6 +1,7 @@
 package xyz.nkomarn.harbor;
 
 import com.earth2me.essentials.Essentials;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.World;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -14,7 +15,6 @@ import xyz.nkomarn.harbor.listener.BedListener;
 import xyz.nkomarn.harbor.task.Checker;
 import xyz.nkomarn.harbor.util.Config;
 import xyz.nkomarn.harbor.util.Messages;
-import xyz.nkomarn.harbor.util.Metrics;
 import xyz.nkomarn.harbor.util.PlayerManager;
 
 import java.util.Arrays;
@@ -48,7 +48,7 @@ public class Harbor extends JavaPlugin {
 
 
         if (config.getBoolean("metrics")) {
-            new Metrics(this);
+            new Metrics(this, 4958);
         }
     }
 
