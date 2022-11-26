@@ -173,7 +173,7 @@ public class Checker extends BukkitRunnable {
     public List<Player> getSleepingPlayers(@NotNull World world) {
         return world.getPlayers().stream()
                 .filter(player -> player.getPose() == Pose.SLEEPING)
-                .collect(toList());
+                .toList();
     }
 
     /**
@@ -210,7 +210,8 @@ public class Checker extends BukkitRunnable {
     private List<Player> getExcluded(@NotNull World world) {
         return world.getPlayers().stream()
                 .filter(this::isExcluded)
-                .collect(toList());
+                .toList();
+
     }
 
     /**

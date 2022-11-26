@@ -34,7 +34,7 @@ public class HarborCommand implements TabExecutor {
         }
 
         sender.sendMessage(config.getPrefix() + config.getString("messages.miscellaneous.unrecognized-command"));
-        return true;
+        return false;
     }
 
     @Override
