@@ -89,7 +89,7 @@ public class Messages implements Listener {
     public void sendRandomChatMessage(@NotNull World world, @NotNull String listLocation) {
         List<String> messages = config.getStringList(listLocation);
 
-        if (messages.size() < 1) {
+        if (messages.isEmpty()) {
             return;
         }
 

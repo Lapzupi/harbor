@@ -97,15 +97,10 @@ public class PlayerManager implements Listener {
      * @param logicType The type of logic (And or Or, {@link LogicType}) to be used with the given provider
      */
     public void addAfkProvider(@NotNull AFKProvider provider, @NotNull LogicType logicType) {
-        switch (logicType){
-            case AND:
-                andedProviders.add(provider);
-                break;
-            case OR:
-                oredProviders.add(provider);
-                break;
-            default:
-                throw new IllegalStateException("Invalid logic type specified");
+        switch (logicType) {
+            case AND -> andedProviders.add(provider);
+            case OR -> oredProviders.add(provider);
+            default -> throw new IllegalStateException("Invalid logic type specified");
         }
         updateListeners();
     }

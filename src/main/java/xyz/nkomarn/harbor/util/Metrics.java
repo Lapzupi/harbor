@@ -26,6 +26,7 @@ import java.util.zip.GZIPOutputStream;
 /**
  * bStats collects some data for plugin authors.
  * Check out https://bStats.org/ to learn more about bStats!
+ * TODO BSTATS SHADE
  */
 @SuppressWarnings({"WeakerAccess", "unused"})
 public class Metrics {
