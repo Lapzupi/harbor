@@ -29,7 +29,7 @@ public class BedListener implements Listener {
     }
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
-    public void onBedEnter(PlayerBedEnterEvent event) {
+    public void onBedEnter(@NotNull PlayerBedEnterEvent event) {
         if (event.getBedEnterResult() != PlayerBedEnterEvent.BedEnterResult.OK) {
             return;
         }
@@ -48,7 +48,7 @@ public class BedListener implements Listener {
     }
 
     @EventHandler(ignoreCancelled = true)
-    public void onBedLeave(PlayerBedLeaveEvent event) {
+    public void onBedLeave(@NotNull PlayerBedLeaveEvent event) {
         if (isMessageSilenced(event.getPlayer())) {
             return;
         }

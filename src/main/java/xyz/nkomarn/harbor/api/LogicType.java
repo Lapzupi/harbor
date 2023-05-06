@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 public enum LogicType {
     AND, OR;
 
-    public static LogicType fromConfig(@NotNull Configuration configuration, String path, LogicType defaultType) {
+    public static LogicType fromConfig(@NotNull Configuration configuration, String path, @NotNull LogicType defaultType) {
         return valueOf(configuration.getString(path, defaultType.toString()).toUpperCase().trim());
     }
 }

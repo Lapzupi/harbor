@@ -25,8 +25,8 @@ public final class EssentialsAFKProvider implements AFKProvider {
         if(harbor.getConfig().getBoolean("afk-detection.essentials-enabled", true)) {
             User user = essentials.getUser(player);
             return user != null && user.isAfk();
-        } else {
-            return false;
         }
+        
+        return false;
     }
 }

@@ -27,8 +27,8 @@ public class ForceSkipCommand implements CommandExecutor {
             return true;
         }
 
-        World world = player.getWorld();
-        Checker checker = harbor.getChecker();
+        final World world = player.getWorld();
+        final Checker checker = harbor.getChecker();
 
         if (checker.isSkipping(world)) {
             sender.sendMessage(config.getPrefix() + "This world's time is already being accelerated.");

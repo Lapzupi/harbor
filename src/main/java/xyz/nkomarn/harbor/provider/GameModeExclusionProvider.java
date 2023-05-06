@@ -16,7 +16,7 @@ public final class GameModeExclusionProvider implements ExclusionProvider {
     }
 
     @Override
-    public boolean isExcluded(Player player) {
+    public boolean isExcluded(@NotNull Player player) {
         return harbor.getConfig().getBoolean("exclusions.exclude-" + player.getGameMode().toString().toLowerCase(), false);
     }
 }

@@ -11,7 +11,6 @@ version = "1.6.4"
 description = "Harbor redefines how sleep works in your server, making it easier for all the online players to get in bed quickly and skip through the night!"
 
 repositories {
-    mavenCentral()
     maven ("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
     maven ("https://ci.ender.zone/plugin/repository/everything/")
     maven ("https://repo.extendedclip.com/content/repositories/placeholderapi/")

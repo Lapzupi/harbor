@@ -76,28 +76,28 @@ public final class AfkListener implements Listener {
     }
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
-    public void onChat(AsyncPlayerChatEvent event) {
+    public void onChat(@NotNull AsyncPlayerChatEvent event) {
         afkProvider.updateActivity(event.getPlayer());
     }
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
-    public void onCommand(PlayerCommandPreprocessEvent event) {
+    public void onCommand(@NotNull PlayerCommandPreprocessEvent event) {
         afkProvider.updateActivity(event.getPlayer());
     }
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
-    public void onInventoryClick(InventoryClickEvent event) {
+    public void onInventoryClick(@NotNull InventoryClickEvent event) {
         afkProvider.updateActivity((Player) event.getWhoClicked());
     }
 
     @EventHandler(priority = EventPriority.MONITOR)
-    public void onJoin(PlayerJoinEvent event) {
+    public void onJoin(@NotNull PlayerJoinEvent event) {
         players.add(new AfkPlayer(event.getPlayer()));
         afkProvider.updateActivity(event.getPlayer());
     }
 
     @EventHandler(priority = EventPriority.MONITOR)
-    public void onLeave(PlayerQuitEvent event) {
+    public void onLeave(@NotNull PlayerQuitEvent event) {
         players.remove(new AfkPlayer(event.getPlayer()));
         afkProvider.removePlayer(event.getPlayer().getUniqueId());
     }
@@ -131,7 +131,7 @@ public final class AfkListener implements Listener {
         private final Player player;
         private int locationHash;
 
-        public AfkPlayer(Player player) {
+        public AfkPlayer(@NotNull Player player) {
             this.player = player;
             locationHash = player.getEyeLocation().hashCode();
         }

@@ -19,8 +19,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
-import static java.util.stream.Collectors.toList;
-
 public class Checker extends BukkitRunnable {
     private final Set<ExclusionProvider> providers;
     private final Harbor harbor;
@@ -89,7 +87,9 @@ public class Checker extends BukkitRunnable {
             messages.sendActionBarMessage(world, config.getString("messages.actionbar.players-sleeping"));
             messages.sendBossBarMessage(world, config.getString("messages.bossbar.players-sleeping.message"),
                     config.getString("messages.bossbar.players-sleeping.color"), sleepingPercentage);
-        } else if (needed == 0) {
+        }
+        
+        if (needed == 0) {
             messages.sendActionBarMessage(world, config.getString("messages.actionbar.night-skipping"));
             messages.sendBossBarMessage(world, config.getString("messages.bossbar.night-skipping.message"),
                     config.getString("messages.bossbar.night-skipping.color"), 1);
