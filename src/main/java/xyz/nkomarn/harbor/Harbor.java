@@ -18,6 +18,7 @@ import xyz.nkomarn.harbor.util.Messages;
 import xyz.nkomarn.harbor.util.PlayerManager;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Optional;
 
 public class Harbor extends JavaPlugin {
@@ -27,23 +28,24 @@ public class Harbor extends JavaPlugin {
     private PlayerManager playerManager;
     private Essentials essentials;
 
+    @Override
     public void onEnable() {
         PluginManager pluginManager = getServer().getPluginManager();
 
-        config = new Config(this);
-        checker = new Checker(this);
-        messages = new Messages(this);
-        playerManager = new PlayerManager(this);
-        essentials = (Essentials) pluginManager.getPlugin("Essentials");
+        this.config = new Config(this);
+        this.checker = new Checker(this);
+        this.messages = new Messages(this);
+        this.playerManager = new PlayerManager(this);
+        this.essentials = (Essentials) pluginManager.getPlugin("Essentials");
 
         Arrays.asList(
-                messages,
-                playerManager,
+            this.messages,
+            this.playerManager,
                 new BedListener(this)
         ).forEach(listener -> pluginManager.registerEvents(listener, this));
 
-        getCommand("harbor").setExecutor(new HarborCommand(this));
-        getCommand("forceskip").setExecutor(new ForceSkipCommand(this));
+        Objects.requireNonNull(getCommand("harbor")).setExecutor(new HarborCommand(this));
+        Objects.requireNonNull(getCommand("forceskip")).setExecutor(new ForceSkipCommand(this));
 
 
 
