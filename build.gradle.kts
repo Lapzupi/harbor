@@ -59,6 +59,13 @@ bukkit {
     }
 }
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
+}
+
+
 dependencies {
     compileOnly(libs.spigot.api)
     compileOnly(libs.placeholder.api)
@@ -66,4 +73,18 @@ dependencies {
     
     implementation(libs.bstats)
     library(libs.annotations)
+}
+
+tasks {
+    build {
+        dependsOn(shadowJar)
+    }
+    
+    shadowJar {
+        minimize()
+        
+        archiveClassifier.set("")
+        
+        relocate("org.bstats", "xyz.nkomarn.harbor.bstats")
+    }
 }
