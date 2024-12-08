@@ -53,7 +53,7 @@ public class Messages implements Listener {
      * @param message The message to send.
      */
     public void sendWorldChatMessage(@NotNull World world, @NotNull String message) {
-        if (!config.getBoolean("messages.chat.enabled") || message.length() < 1) {
+        if (!config.getBoolean("messages.chat.enabled") || message.isEmpty()) {
             return;
         }
 
@@ -70,7 +70,7 @@ public class Messages implements Listener {
      * @param message The message to send.
      */
     public void sendActionBarMessage(@NotNull World world, @NotNull String message) {
-        if (!config.getBoolean("messages.actionbar.enabled") || message.length() < 1) {
+        if (!config.getBoolean("messages.actionbar.enabled") || message.isEmpty()) {
             return;
         }
 
@@ -105,7 +105,7 @@ public class Messages implements Listener {
      * @param percentage The bossbar percentage to set.
      */
     public void sendBossBarMessage(@NotNull World world, @NotNull String message, @NotNull String color, double percentage) {
-        if (!config.getBoolean("messages.bossbar.enabled") || message.length() < 1) {
+        if (!config.getBoolean("messages.bossbar.enabled") || message.isEmpty()) {
             return;
         }
 

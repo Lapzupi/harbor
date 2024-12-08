@@ -1,27 +1,20 @@
 import net.minecrell.pluginyml.bukkit.BukkitPluginDescription
 
 plugins {
-    id("java")
-    id("net.minecrell.plugin-yml.bukkit") version "0.5.3"
-    id("com.github.johnrengelman.shadow") version "8.1.0"
+    java
+    alias(libs.plugins.bukkit.yml)
+    alias(libs.plugins.shadow)
 }
 
 group = "xyz.nkomarn.harbor"
 version = "1.6.4"
 description = "Harbor redefines how sleep works in your server, making it easier for all the online players to get in bed quickly and skip through the night!"
 
-repositories {
-    maven ("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
-    maven ("https://ci.ender.zone/plugin/repository/everything/")
-    maven ("https://repo.extendedclip.com/content/repositories/placeholderapi/")
-    maven ("https://repo.essentialsx.net/releases/")
-}
-
 bukkit {
     name = "Harbor"
     main = "xyz.nkomarn.harbor.Harbor"
     version = rootProject.version.toString()
-    apiVersion = "1.14"
+    apiVersion = "1.21"
     
     website = "https://nkomarn.xyz"
     author = "TechToolbox (@nkomarn)"
@@ -60,17 +53,18 @@ bukkit {
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
+        languageVersion.set(JavaLanguageVersion.of(21))
     }
 }
 
 
 dependencies {
-    compileOnly(libs.spigot.api)
+    compileOnly(libs.paper.api)
     compileOnly(libs.placeholder.api)
     compileOnly(libs.essentials)
     
     implementation(libs.bstats)
+    implementation(libs.annotations)
     library(libs.annotations)
 }
 
